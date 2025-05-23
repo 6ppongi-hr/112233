@@ -1,9 +1,19 @@
-<script>
-  const params = new URLSearchParams(window.location.search);
-  const uid = params.get("uid");
-  if (uid) {
-    window.location.href = `https://script.google.com/macros/s/你的部署ID/exec?uid=${uid}`;
-  } else {
-    document.body.innerHTML = "缺少 UID 參數，請重新掃 NFC。";
-  }
-</script>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>打卡中繼跳轉</title>
+</head>
+<body>
+  <p>正在打卡，請稍候...</p>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const uid = params.get("uid");
+    if (uid) {
+      window.location.href = `https://script.google.com/macros/s/AKfycbwEFXg30V_FT5S3CQzVZBDYsAyaw312pSag5kXmDnKgTZ0t98fdL7y9sbp9ihS4vEovaQ/exec?uid=${uid}`;
+    } else {
+      document.body.innerHTML = "缺少 UID 參數，請重新掃 NFC。";
+    }
+  </script>
+</body>
+</html>
