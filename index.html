@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting...</title>
+  <script>
+    window.onload = function() {
+      const params = new URLSearchParams(window.location.search);
+      const uid = params.get('uid');
+      if (!uid) {
+        document.body.innerHTML = "<h2>UID 缺失，無法導向。</h2>";
+        return;
+      }
+      // 你的 Google Script 執行網址
+      const scriptUrl = "https://script.google.com/macros/s/AKfycbxoWa1odxhjAMO9VEoSWYN8BvdOK0kQk3Dfogs00cF2a7foy8DRYyxuahoU3T4pAuCotQ/exec";
+      window.location.href = `${scriptUrl}?uid=${encodeURIComponent(uid)}`;
+    };
+  </script>
+</head>
+<body>
+  <h2>正在轉跳...</h2>
+</body>
+</html>
