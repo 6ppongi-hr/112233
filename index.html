@@ -1,23 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <title>打卡中轉頁</title>
-  <script>
-    const urlParams = new URLSearchParams(window.location.search);
-    const uid = urlParams.get("uid");
-
-    if (uid) {
-      // 替換成你自己的 Script ID
-      const scriptBase = "https://script.google.com/macros/s/AKfycbwEFXg30V_FT5S3CQzVZBDYsAyaw312pSag5kXmDnKgTZ0t98fdL7y9sbp9ihS4vEovaQ/exec";
-      const redirectUrl = `${scriptBase}?uid=${encodeURIComponent(uid)}`;
-      window.location.replace(redirectUrl);
-    } else {
-      document.body.innerHTML = "<h2>未提供 UID，請重新掃描 NFC</h2>";
-    }
-  </script>
-</head>
-<body>
-  <p>正在跳轉打卡頁面，請稍候...</p>
-</body>
-</html>
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const uid = params.get("uid");
+  if (uid) {
+    window.location.href = `https://script.google.com/macros/s/你的部署ID/exec?uid=${uid}`;
+  } else {
+    document.body.innerHTML = "缺少 UID 參數，請重新掃 NFC。";
+  }
+</script>
