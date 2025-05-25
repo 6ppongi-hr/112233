@@ -3,6 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <title>打卡成功</title>
+    <script>
+      const url = new URL(window.location.href);
+      if (!url.search) {
+        const params = new URLSearchParams(window.name); // 從 window.name 抓參數
+        if (params.toString()) {
+          window.location.href = url.pathname + '?' + params.toString();
+        }
+      }
+    </script>
     <style>
       body {
         background-color: white;
