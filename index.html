@@ -20,9 +20,19 @@
         to { opacity: 0.3; }
       }
     </style>
-  </head>
-  <body>
-    🎉 <span class="star">打卡成功！</span><br><br>
-    請確認您的畫面已顯示此頁面
-  </body>
-</html>
+  <script>	
+// 自動跳轉，避免重複打卡	
+setTimeout(function() {	
+window.location.href = "about:blank";	
+}, 5000); // 5秒後跳轉	
+</script>	
+</head>	
+<body>	
+<div class="stars">✨✨</div>	
+<h1>打卡成功！</h1>	
+<div class="info">您好，<?= name ?>！</div>	
+<div class="time">打卡時間：<?= time ?></div>	
+<div class="status">狀態：<?= status ?>（<?= classType ?>）</div>	
+<div class="count">今天第 <?= count ?> 次打卡</div>	
+</body>	
+</html>	
