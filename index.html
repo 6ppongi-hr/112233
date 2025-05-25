@@ -1,20 +1,78 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-      body {
-        background: #fff;
-        text-align: center;
-        padding: 40px;
-        font-size: 40px;
-        color: green;
-        font-family: Arial, sans-serif;
-      }
-    </style>
-  </head>
-  <body>
-    ✅ 打卡成功<br><br>
-    請關閉此頁面
-  </body>
-</html>
+<!DOCTYPE html>	
+<html>	
+<head>	
+<base target="_top">	
+<style>	
+body {	
+font-family: sans-serif;	
+text-align: center;	
+margin: 0;	
+padding: 0;	
+background-color: #e0e0e0; /* 淺水泥漆色 */	
+height: 100vh;	
+display: flex;	
+flex-direction: column;	
+justify-content: center;	
+align-items: center;	
+}	
+	
+h1 {	
+color: green;	
+font-size: 64px; /* 打卡成功更大 */	
+margin-bottom: 20px;	
+}	
+	
+.info {	
+font-size: 48px; /* 姓名 */	
+margin-bottom: 10px;	
+}	
+	
+.time {	
+font-size: 36px;	
+font-weight: bold; /* 粗體時間 */	
+margin-bottom: 10px;	
+}	
+	
+.status {	
+font-size: 32px;	
+margin-bottom: 5px;	
+}	
+	
+.count {	
+font-size: 28px;	
+color: #333;	
+}	
+	
+.stars {	
+position: absolute;	
+top: 10%;	
+left: 50%;	
+transform: translateX(-50%);	
+font-size: 80px;	
+animation: twinkle 1s infinite alternate;	
+color: gold;	
+}	
+	
+@keyframes twinkle {	
+from { opacity: 0.2; transform: translateX(-50%) scale(0.9); }	
+to { opacity: 1; transform: translateX(-50%) scale(1.2); }	
+}	
+</style>	
+	
+<script>	
+// 自動跳轉，避免重複打卡	
+setTimeout(function() {	
+window.location.href = "about:blank";	
+}, 5000); // 5秒後跳轉	
+</script>	
+</head>	
+<body>	
+<div class="stars">✨✨</div>	
+<h1>打卡成功！</h1>	
+<div class="info">您好，<?= name ?>！</div>	
+<div class="time">打卡時間：<?= time ?></div>	
+<div class="status">狀態：<?= status ?>（<?= classType ?>）</div>	
+<div class="count">今天第 <?= count ?> 次打卡</div>	
+</body>	
+</html>	
+	
