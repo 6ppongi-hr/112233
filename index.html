@@ -1,20 +1,28 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8" />
-    <title>打卡中...</title>
-    <script>
-      const params = new URLSearchParams(window.location.search);
-      const uid = params.get("uid");
-
-      if (uid) {
-        window.location.href = `https://script.google.com/macros/s/你的部署ID/exec?uid=${uid}`;
-      } else {
-        document.body.innerHTML = "⚠️ 無法取得 UID，請重新掃描 NFC。";
+    <meta charset="UTF-8">
+    <title>打卡成功</title>
+    <style>
+      body {
+        background: white;
+        font-size: 40px;
+        text-align: center;
+        margin-top: 100px;
+        font-family: Arial, sans-serif;
       }
-    </script>
+      .star {
+        color: gold;
+        animation: blink 1s infinite alternate;
+      }
+      @keyframes blink {
+        from { opacity: 1; }
+        to { opacity: 0.3; }
+      }
+    </style>
   </head>
   <body>
-    <p>正在打卡，請稍候...</p>
+    🎉 <span class="star">打卡成功！</span><br><br>
+    請確認您的畫面已顯示此頁面
   </body>
 </html>
