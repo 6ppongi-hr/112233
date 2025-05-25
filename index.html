@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8" />
-    <title>NFC 跳轉中…</title>
-    <script>
-      const params = new URLSearchParams(window.location.search);
-      const uid = params.get("uid");
-      if (uid) {
-        window.location.href = `https://script.google.com/macros/s/AKfycbx2Y4q3IStHQzCalmeY8i5pG6UGoR4nnhwkeIoAb0guCpVZCz-Orl2p9OLMad6epdp0/exec?uid=${uid}`;
-      } else {
-        document.body.innerHTML = "❌ 缺少 UID，請重新掃 NFC";
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      body {
+        background: #fff;
+        text-align: center;
+        padding: 40px;
+        font-size: 40px;
+        color: green;
+        font-family: Arial, sans-serif;
       }
-    </script>
+    </style>
   </head>
   <body>
-    <p>🔄 正在跳轉中…</p>
+    ✅ 打卡成功<br><br>
+    請關閉此頁面
   </body>
 </html>
