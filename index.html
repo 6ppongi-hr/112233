@@ -1,38 +1,47 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>打卡成功</title>
     <style>
       body {
-        background: white;
-        font-size: 40px;
+        background-color: white;
+        font-family: sans-serif;
         text-align: center;
-        margin-top: 100px;
-        font-family: Arial, sans-serif;
+        padding-top: 50px;
+      }
+      h1 {
+        font-size: 4em;
+        color: green;
+      }
+      .info {
+        font-size: 2em;
+        margin-top: 20px;
       }
       .star {
-        color: gold;
-        animation: blink 1s infinite alternate;
+        font-size: 3em;
+        animation: twinkle 1s infinite;
       }
-      @keyframes blink {
-        from { opacity: 1; }
-        to { opacity: 0.3; }
+      @keyframes twinkle {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.3; }
       }
     </style>
-  <script>	
-// 自動跳轉，避免重複打卡	
-setTimeout(function() {	
-window.location.href = "about:blank";	
-}, 5000); // 5秒後跳轉	
-</script>	
-</head>	
-<body>	
-<div class="stars">✨✨</div>	
-<h1>打卡成功！</h1>	
-<div class="info">您好，<?= name ?>！</div>	
-<div class="time">打卡時間：<?= time ?></div>	
-<div class="status">狀態：<?= status ?>（<?= classType ?>）</div>	
-<div class="count">今天第 <?= count ?> 次打卡</div>	
-</body>	
-</html>	
+  </head>
+  <body>
+    <div class="star">✨</div>
+    <h1>打卡成功！</h1>
+    <div class="info" id="name"></div>
+    <div class="info" id="time"></div>
+    <div class="info" id="status"></div>
+    <div class="info" id="count"></div>
+
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      document.getElementById("name").innerText = "您好，" + (params.get("name") || "未知") + "！";
+      document.getElementById("time").innerText = "打卡時間：" + (params.get("time") || "未提供");
+      document.getElementById("status").innerText = "狀態：" + (params.get("status") || "未提供");
+      document.getElementById("count").innerText = "今天第 " + (params.get("count") || "0") + " 次打卡";
+    </script>
+  </body>
+</html>
