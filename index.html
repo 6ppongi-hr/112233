@@ -34,12 +34,16 @@
     <div class="info" id="name"></div>
     <div class="info" id="time"></div>
     <div class="info" id="status"></div>
+    <div class="info" id="classType"></div>
+    <div class="info" id="count"></div>
 
     <script>
       const params = new URLSearchParams(window.location.search);
       document.getElementById("name").innerText = "您好，" + (params.get("name") || "未知") + "！";
       document.getElementById("time").innerText = "打卡時間：" + (params.get("time") || "未提供");
       document.getElementById("status").innerText = "狀態：" + (params.get("status") || "未提供");
+      document.getElementById("classType").innerText = "班別：" + (params.get("class") || "未提供");
+      document.getElementById("count").innerText = "今天第 " + (params.get("count") || "1") + " 次打卡";
     </script>
   </body>
 </html>
