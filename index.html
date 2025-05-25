@@ -3,15 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <title>打卡成功</title>
-    <script>
-      const url = new URL(window.location.href);
-      if (!url.search) {
-        const params = new URLSearchParams(window.name); // 從 window.name 抓參數
-        if (params.toString()) {
-          window.location.href = url.pathname + '?' + params.toString();
-        }
-      }
-    </script>
     <style>
       body {
         background-color: white;
@@ -45,10 +36,21 @@
     <div class="info" id="status"></div>
 
     <script>
-      const params = new URLSearchParams(window.location.search);
-      document.getElementById("name").innerText = "您好，" + (params.get("name") || "未知") + "！";
-      document.getElementById("time").innerText = "打卡時間：" + (params.get("time") || "未提供");
-      document.getElementById("status").innerText = "狀態：" + (params.get("status") || "未提供");
+      const url = new URL(window.location.href);
+      // 如果網址上沒帶參數，就用 window.name 的內容補上（只做一次）
+      if (!url.search) {
+        const params = new URLSearchParams(window.name);
+        if (params.toString()) {
+          window.name = ""; // 清空避免重複跳轉
+          window.location.href = url.pathname + '?' + params.toString();
+        }
+      } else {
+        // 網址已經有參數，顯示畫面
+        const params = new URLSearchParams(window.location.search);
+        document.getElementById("name").innerText = "您好，" + (params.get("name") || "未知") + "！";
+        document.getElementById("time").innerText = "打卡時間：" + (params.get("time") || "未提供");
+        document.getElementById("status").innerText = "狀態：" + (params.get("status") || "未提供");
+      }
     </script>
   </body>
 </html>
