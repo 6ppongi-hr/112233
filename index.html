@@ -2,18 +2,18 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>打卡中繼跳轉</title>
-</head>
-<body>
-  <p>正在打卡，請稍候...</p>
+  <title>打卡中...</title>
   <script>
     const params = new URLSearchParams(window.location.search);
     const uid = params.get("uid");
     if (uid) {
-      window.location.href = `https://script.google.com/macros/s/AKfycby5zwvRRLyIQFjL4eYXukV4wObOFlz3GlIvjvp9JSfJRq5CpwCddwYfK2tTqd54mdZfZw/exec?uid=${uid}`;
+      window.location.href = `https://script.google.com/macros/s/YOUR_DEPLOY_ID/exec?uid=${uid}`;
     } else {
-      document.body.innerHTML = "缺少 UID 參數，請重新掃 NFC。";
+      document.body.innerHTML = "❌ 缺少 UID 參數，請重新掃描 NFC。";
     }
   </script>
+</head>
+<body>
+  🔄 正在打卡，請稍候...
 </body>
 </html>
