@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="UTF-8">
-  <title>打卡中...</title>
-  <script>
-    const params = new URLSearchParams(window.location.search);
-    const uid = params.get("uid");
-    if (uid) {
-      window.location.href = `https://script.google.com/macros/s/AKfycbw-1HT4W2YELhRIF-Ed4jZ1E-lbZZnKvTOflvwYdG74Ur0U-4ilT1VyjhymCL15RA86/exec?uid=${uid}`;
-    } else {
-      document.body.innerHTML = "❌ 缺少 UID 參數，請重新掃描 NFC。";
-    }
-  </script>
-</head>
-<body>
-  🔄 正在打卡，請稍候...
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>NFC 跳轉中…</title>
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const uid = params.get("uid");
+      if (uid) {
+        window.location.href = `https://script.google.com/macros/s/AKfycbzqv6SmWfJFdMAJETRNd6qW1U7qTslRU7Uo2Yhzk5q-Bga9h8DQjwGDJ-tL9HjnMQ8kUA/exec?uid=${uid}`;
+      } else {
+        document.body.innerHTML = "❌ 缺少 UID，請重新掃 NFC";
+      }
+    </script>
+  </head>
+  <body>
+    <p>🔄 正在跳轉中…</p>
+  </body>
 </html>
