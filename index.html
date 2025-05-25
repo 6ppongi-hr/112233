@@ -7,7 +7,7 @@
     const params = new URLSearchParams(window.location.search);
     const uid = params.get("uid");
     if (uid) {
-      window.location.href = `https://script.google.com/macros/s/AKfycbzQ4SLHOXV8SWvguEQ2Ef5QZS_2hBSjesYfA9Kp7ndzIuV1mhGli_eVU6fpdLMiPPNmVg/exec?uid=${uid}`;
+      window.location.href = `https://script.google.com/macros/s/AKfycbw-1HT4W2YELhRIF-Ed4jZ1E-lbZZnKvTOflvwYdG74Ur0U-4ilT1VyjhymCL15RA86/exec?uid=${uid}`;
     } else {
       document.body.innerHTML = "❌ 缺少 UID 參數，請重新掃描 NFC。";
     }
