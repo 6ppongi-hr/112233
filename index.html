@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
@@ -61,6 +61,10 @@
     document.getElementById("name").textContent = `您好，${params.get("name")}！`;
     document.getElementById("time").textContent = `打卡時間：${params.get("time")}`;
     document.getElementById("status").textContent = `狀態：${params.get("status")}（${params.get("classType")}）`;
+
+    setTimeout(() => {
+      window.location.href = "about:blank";
+    }, 5000);
   </script>
 </body>
 </html>
