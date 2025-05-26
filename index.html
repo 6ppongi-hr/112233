@@ -1,12 +1,72 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>空白頁</title>
-    <style>
-      body { background-color: white; }
-    </style>
-  </head>
-  <body>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <title>打卡成功</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      background-color: #e0e0e0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    h1 {
+      color: green;
+      font-size: 64px;
+      margin-bottom: 20px;
+    }
+    .info {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+    .time {
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .status {
+      font-size: 32px;
+      margin-bottom: 5px;
+    }
+    .stars {
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 80px;
+      animation: twinkle 1s infinite alternate;
+      color: gold;
+    }
+    @keyframes twinkle {
+      from { opacity: 0.2; transform: translateX(-50%) scale(0.9); }
+      to { opacity: 1; transform: translateX(-50%) scale(1.2); }
+    }
+  </style>
+  <script>
+    // 自動跳轉，避免重複打卡
+    setTimeout(function () {
+      window.location.href = "about:blank";
+    }, 5000);
+  </script>
+</head>
+<body>
+  <div class="stars">✨✨</div>
+  <h1>打卡成功！</h1>
+  <div class="info" id="name">載入中...</div>
+  <div class="time" id="time"></div>
+  <div class="status" id="status"></div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    document.getElementById("name").textContent = `您好，${params.get("name")}！`;
+    document.getElementById("time").textContent = `打卡時間：${params.get("time")}`;
+    document.getElementById("status").textContent = `狀態：${params.get("status")}（${params.get("classType")}）`;
+  </script>
+</body>
 </html>
