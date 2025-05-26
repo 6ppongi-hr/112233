@@ -2,13 +2,19 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <script>
-      setTimeout(function() {
-        window.location.href = "https://6ppongi-hr.github.io/112233/?name=Test&time=123&status=上班&classType=晚班";
-      }, 300);
-    </script>
+    <title>跳轉測試頁</title>
+    <meta http-equiv="refresh" content="3;url=https://www.google.com">
+    <style>
+      body {
+        font-family: sans-serif;
+        text-align: center;
+        background-color: #f0f0f0;
+        padding-top: 100px;
+      }
+    </style>
   </head>
   <body>
-    <h1>測試中，應該自動跳轉...</h1>
+    <h1>這是一個跳轉測試頁</h1>
+    <p>三秒後自動跳轉到 Google（用於測試 GitHub Pages 是否允許跳轉）</p>
   </body>
 </html>
