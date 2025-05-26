@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>
 <head>
   <meta charset="UTF-8">
@@ -57,15 +57,10 @@
   <div class="status" id="status"></div>
 
   <script>
-    const params = new URLSearchParams(location.search);
+    const params = new URLSearchParams(window.location.search);
     document.getElementById("name").textContent = `您好，${params.get("name")}！`;
     document.getElementById("time").textContent = `打卡時間：${params.get("time")}`;
     document.getElementById("status").textContent = `狀態：${params.get("status")}（${params.get("classType")}）`;
-
-    // 5秒後自動關閉畫面（跳 about:blank）
-    setTimeout(() => {
-      location.href = "about:blank";
-    }, 5000);
   </script>
 </body>
 </html>
