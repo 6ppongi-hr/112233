@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script>
+      setTimeout(function() {
+        window.location.href = "https://6ppongi-hr.github.io/112233/?name=Test&time=123&status=上班&classType=晚班";
+      }, 300);
+    </script>
+  </head>
+  <body>
+    <h1>測試中，應該自動跳轉...</h1>
+  </body>
+</html>
