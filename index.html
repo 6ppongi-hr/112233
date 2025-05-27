@@ -1,16 +1,102 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
-  <title>轉跳中...</title>
+  <base target="_top">
+  <title>打卡結果</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      background-color: #e0e0e0; /* 淺水泥漆色 */
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    h1 {
+      color: green;
+      font-size: 64px;
+      margin-bottom: 20px;
+    }
+
+    .error h1 {
+      color: red;
+    }
+
+    .info {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+
+    .time {
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .status {
+      font-size: 32px;
+      margin-bottom: 5px;
+    }
+
+    .stars {
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 80px;
+      animation: twinkle 1s infinite alternate;
+      color: gold;
+    }
+
+    @keyframes twinkle {
+      from { opacity: 0.2; transform: translateX(-50%) scale(0.9); }
+      to { opacity: 1; transform: translateX(-50%) scale(1.2); }
+    }
+  </style>
+
   <script>
-    const params = new URLSearchParams(window.location.search);
-    const url = new URL("https://6ppongi-hr.github.io/112233/");
-    params.forEach((value, key) => url.searchParams.set(key, value));
-    window.location.href = url.toString();
+    // 5 秒後自動跳轉
+    setTimeout(() => {
+      window.location.href = "about:blank";
+    }, 5000);
   </script>
 </head>
 <body>
-  <p>跳轉中，請稍候...</p>
+  <div class="stars">✨✨</div>
+  <div id="content"></div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const name = params.get("name");
+    const time = params.get("time");
+    const status = params.get("status");
+    const classType = params.get("classType");
+    const error = params.get("error");
+
+    const contentDiv = document.getElementById("content");
+
+    if (error) {
+      contentDiv.innerHTML = `
+        <div class="error">
+          <h1>打卡失敗</h1>
+          <div class="info">${decodeURIComponent(error)}</div>
+        </div>
+      `;
+    } else {
+      contentDiv.innerHTML = `
+        <h1>打卡成功！</h1>
+        <div class="info">您好，${name}！</div>
+        <div class="time">打卡時間：${time}</div>
+        <div class="status">狀態：${status}（${classType}）</div>
+      `;
+    }
+  </script>
 </body>
 </html>
