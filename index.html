@@ -1,6 +1,20 @@
-<script>
-  const params = new URLSearchParams(window.location.search);
-  document.getElementById("name").textContent = `您好，${params.get("name")}！`;
-  document.getElementById("time").textContent = `打卡時間：${params.get("time")}`;
-  document.getElementById("status").textContent = `狀態：${params.get("status")}（${params.get("classType")}）`;
-</script>
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>打卡成功</title>
+</head>
+<body style="background-color: #e0e0e0; font-size: 20px; text-align: center; padding-top: 100px;">
+  <p id="status-text">打卡成功！即將跳轉…</p>
+  <script>
+    setTimeout(function () {
+      const urlParams = new URLSearchParams(window.location.search);
+      const name = urlParams.get('name') || '';
+      const time = urlParams.get('time') || '';
+      const status = urlParams.get('status') || '';
+      const targetURL = `https://6ppongi-hr.github.io/112233/?name=${encodeURIComponent(name)}&time=${encodeURIComponent(time)}&status=${encodeURIComponent(status)}`;
+      window.location.href = targetURL;
+    }, 3000);
+  </script>
+</body>
+</html>
