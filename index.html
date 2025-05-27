@@ -7,13 +7,14 @@
 <body style="background-color: #e0e0e0; font-size: 20px; text-align: center; padding-top: 100px;">
   <p id="status-text">打卡成功！即將跳轉…</p>
   <script>
-    setTimeout(function () {
-      const urlParams = new URLSearchParams(window.location.search);
-      const name = urlParams.get('name') || '';
-      const time = urlParams.get('time') || '';
-      const status = urlParams.get('status') || '';
-      const targetURL = `https://6ppongi-hr.github.io/112233/?name=${encodeURIComponent(name)}&time=${encodeURIComponent(time)}&status=${encodeURIComponent(status)}`;
-      window.location.href = targetURL;
+    const urlParams = new URLSearchParams(window.location.search);
+    const name = urlParams.get('name') || '';
+    const time = urlParams.get('time') || '';
+    const status = urlParams.get('status') || '';
+
+    setTimeout(() => {
+      const finalURL = `https://6ppongi-hr.github.io/112233/?name=${encodeURIComponent(name)}&time=${encodeURIComponent(time)}&status=${encodeURIComponent(status)}`;
+      window.location.href = finalURL;
     }, 3000);
   </script>
 </body>
