@@ -1,36 +1,16 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html>
 <head>
   <meta charset="UTF-8">
-  <title>打卡成功</title>
-  <style>
-    body {
-      background-color: #e0e0e0;
-      font-size: 20px;
-      text-align: center;
-      padding-top: 100px;
-    }
-  </style>
+  <title>轉跳中...</title>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const url = new URL("https://6ppongi-hr.github.io/112233/");
+    params.forEach((value, key) => url.searchParams.set(key, value));
+    window.location.href = url.toString();
+  </script>
 </head>
 <body>
-  <p id="status-text">打卡成功！即將跳轉…</p>
-  <p id="info"></p>
-
-  <script>
-    const urlParams = new URLSearchParams(window.location.search);
-    const name = urlParams.get('name') || '';
-    const time = urlParams.get('time') || '';
-    const status = urlParams.get('status') || '';
-
-    // 顯示打卡資訊
-    const info = document.getElementById("info");
-    info.textContent = `姓名：${name}，時間：${time}，狀態：${status}`;
-
-    // 3 秒後跳轉（你可以視情況關掉這段）
-    setTimeout(() => {
-      const finalURL = `https://6ppongi-hr.github.io/112233/?name=${encodeURIComponent(name)}&time=${encodeURIComponent(time)}&status=${encodeURIComponent(status)}`;
-      window.location.href = finalURL;
-    }, 3000);
-  </script>
+  <p>跳轉中，請稍候...</p>
 </body>
 </html>
